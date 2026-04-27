@@ -35,7 +35,7 @@ const FacialExpression = ({ setSongs }) => {
       if (detection && detection.expressions) {
         const dominant = Object.entries(detection.expressions);
         const mood = dominant.reduce((a, b) => (a[1] > b[1] ? a : b))[0];
-        const { data } = await axios.get(`http://localhost:3000/songs?mood=${mood}`);
+        const { data } = await axios.get(`https://moodtunes-backend-15k7.onrender.com/songs?mood=${mood}`);
         console.log(mood);
         setSongs(data.songs);
       }
